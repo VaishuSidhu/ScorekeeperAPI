@@ -52,7 +52,11 @@ Caching: Flask-Caching
 
 Clone the repository
 
+<<<<<<< HEAD
 git clone https://github.com/Vaishnavy04/scorekeeper-api.git
+=======
+git clone https://github.com/VaishuSidhu/scorekeeper-api.git
+>>>>>>> 02f99adcc4873c5a42b9f519997a3cd166035357
 cd scorekeeper-api
 
 -----------------------------------------------------------------------
@@ -79,9 +83,23 @@ The server will start at:
 
 http://127.0.0.1:5000
 
+<<<<<<< HEAD
+=======
+---------------------------------------------------------------------
+
 🔑 API Endpoints
-
-
+POST /api/scores
+○ Accepts a JSON body: { "traderName": "string", "score":
+number }.
+○ Logic: This endpoint must create a new trader if they don't
+exist. If a trader does exist, it should only update their
+score if the new score is higher than their current score.
+● GET /api/leaderboard
+○ Returns a JSON array of the Top 10 traders, ranked by
+score in descending order.
+● GET /api/rank/:traderName
+○ Returns the current rank and score for a specific trader.
+>>>>>>> 02f99adcc4873c5a42b9f519997a3cd166035357
 ---------------------------------------------------------------------
 
 📝 Example Workflow
