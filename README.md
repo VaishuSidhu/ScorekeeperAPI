@@ -79,8 +79,20 @@ The server will start at:
 
 http://127.0.0.1:5000
 
-🔑 API Endpoints
+---------------------------------------------------------------------
 
+🔑 API Endpoints
+POST /api/scores
+○ Accepts a JSON body: { "traderName": "string", "score":
+number }.
+○ Logic: This endpoint must create a new trader if they don't
+exist. If a trader does exist, it should only update their
+score if the new score is higher than their current score.
+● GET /api/leaderboard
+○ Returns a JSON array of the Top 10 traders, ranked by
+score in descending order.
+● GET /api/rank/:traderName
+○ Returns the current rank and score for a specific trader.
 ---------------------------------------------------------------------
 
 📝 Example Workflow
