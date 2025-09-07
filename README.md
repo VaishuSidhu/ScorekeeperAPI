@@ -1,158 +1,9 @@
 🏆 Scorekeeper API
 
-A Flask-based Leaderboard API with JWT Authentication, Caching, and SQLite Database.
-This project allows users to register, login, submit scores, view leaderboards, and check ranks.
-
--------------------------------------------------------------------------
-
-🚀 Features
-
-✅ User Authentication
-
-Register new users with hashed passwords
-
-Secure login using JWT tokens
-
-✅ Score Management
-
-Submit or update a player’s score
-
-Automatically keeps the highest score for each player
-
-✅ Leaderboard
-
-Top 10 players ranked by score
-
-Cached leaderboard for faster responses
-
-✅ Rank System
-
-Fetch a specific player’s rank among all players
-
-✅ Caching
-
-Leaderboard is cached for 30 seconds using Flask-Caching
-
--------------------------------------------------------------------------
-
-🛠️ Tech Stack
-
-Backend Framework: Flask (Python)
-
-Database: SQLite (SQLAlchemy ORM)
-
-Authentication: JWT (flask-jwt-extended)
-
-Security: Werkzeug Password Hashing
-
-Caching: Flask-Caching
-
-------------------------------------------------------------------------
-📦 Installation
-
-Clone the repository
-
-<<<<<<< HEAD
-git clone https://github.com/Vaishnavy04/scorekeeper-api.git
-=======
-git clone https://github.com/VaishuSidhu/scorekeeper-api.git
->>>>>>> 02f99adcc4873c5a42b9f519997a3cd166035357
-cd scorekeeper-api
-
------------------------------------------------------------------------
-Create and activate a virtual environment
-
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On Mac/Linux
-source venv/bin/activate
-
-
-Install dependencies
-
-pip install -r requirements.txt
-
-
-Run the app
-
-python app.py
-
-
-The server will start at:
-
-http://127.0.0.1:5000
-
-<<<<<<< HEAD
-=======
----------------------------------------------------------------------
-
-🔑 API Endpoints
-POST /api/scores
-○ Accepts a JSON body: { "traderName": "string", "score":
-number }.
-○ Logic: This endpoint must create a new trader if they don't
-exist. If a trader does exist, it should only update their
-score if the new score is higher than their current score.
-● GET /api/leaderboard
-○ Returns a JSON array of the Top 10 traders, ranked by
-score in descending order.
-● GET /api/rank/:traderName
-○ Returns the current rank and score for a specific trader.
->>>>>>> 02f99adcc4873c5a42b9f519997a3cd166035357
----------------------------------------------------------------------
-
-📝 Example Workflow
-
-Register → Create an account
-
-Login → Get JWT token
-
-Submit Score → Post your score with the token
-
-View Leaderboard → See top 10 players
-
-Check Rank → Find your rank globally
-
---------------------------------------------------------------------
-
-📚 Requirements
-
-Python 3.8+
-
-Flask
-
-Flask-JWT-Extended
-
-Flask-Caching
-
-Flask-SQLAlchemy
-
-Install them using:
-
-pip install flask flask-jwt-extended flask-caching flask-sqlalchemy
-
---------------------------------------------------------------------
-
-🌟 Future Enhancements
-
-Real-time leaderboard updates using WebSockets (Flask-SocketIO)
-
-Role-based access (Admin vs Player)
-
-Achievements & badges for milestones
-
-Daily/Weekly leaderboards
-
-
-👨‍💻 Author
-Developed by Vaishnavy ✨
-
-
-🏆 Scorekeeper API
-
 A clean and simple Trader Leaderboard API built with Flask, SQLite, and JWT authentication.
 It manages trader scores, generates a dynamic leaderboard, and secures updates with authentication.
+
+-----------------------------------------------------------------------
 
 🚀 Features
 
@@ -168,6 +19,8 @@ It manages trader scores, generates a dynamic leaderboard, and secures updates w
 
 🗂 SQLite database for persistence
 
+-----------------------------------------------------------------------
+
 🛠 Tech Stack
 
 Backend: Flask (Python)
@@ -178,6 +31,8 @@ Auth: JWT (flask_jwt_extended)
 
 Cache: Flask-Caching (SimpleCache)
 
+-----------------------------------------------------------------------
+
 📂 Project Structure
 scorekeeperAPI/
 │── app.py               # Main application
@@ -185,6 +40,8 @@ scorekeeperAPI/
 │── venv/                # Virtual environment (recommended)
 │── requirements.txt     # Dependencies
 │── README.md            # Documentation
+
+-----------------------------------------------------------------------
 
 ⚙️ Setup Instructions
 
@@ -216,6 +73,8 @@ python app.py
 5️⃣ Server will start at:
 👉 http://127.0.0.1:5000/
 
+-----------------------------------------------------------------------
+
 📦 Requirements
 
 Create a requirements.txt with:
@@ -225,6 +84,8 @@ Flask-SQLAlchemy
 Flask-JWT-Extended
 Flask-Caching
 Werkzeug
+
+-----------------------------------------------------------------------
 
 🔑 Authentication Flow
 
@@ -242,6 +103,8 @@ API Endpoints
 Headers:
 4️⃣ Get Leaderboard (GET /api/leaderboard)
 
+-----------------------------------------------------------------------
+
 🏅 Bonus Features
 
 ✅ JWT authentication on score updates
@@ -250,11 +113,13 @@ Headers:
 
 ✅ Leaderboard cached for 30s
 
+-----------------------------------------------------------------------
+
 👨‍💻 Author
 
 Vaishnavy S 
-
 Scorekeeper API – Developed for a backend recruitment challenge.
+-----------------------------------------------------------------------
 
 📜 License
 
