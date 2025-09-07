@@ -1,0 +1,115 @@
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Trader Leaderboard API (Flask)",
+    "version": "1.0.0",
+    "description": "Manage trader scores, leaderboard, ranking, history, and stats."
+  },
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Login to obtain JWT access token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {"type": "string"},
+                  "password": {"type": "string"}
+                },
+                "required": ["username","password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "Success"},
+          "401": {"description": "Invalid credentials"}
+        }
+      }
+    },
+    "/api/scores": {
+      "post": {
+        "summary": "Add or update a trader's score (update only if new score is higher)",
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "traderName": {"type": "string"},
+                  "score": {"type": "number"}
+                },
+                "required": ["traderName","score"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {"description": "Created"},
+          "200": {"description": "Updated or no change"},
+          "400": {"description": "Invalid input"},
+          "401": {"description": "Unauthorized"}
+        }
+      }
+    },
+    "/api/leaderboard": {
+      "get": {
+        "summary": "Get leaderboard with pagination (default Top 10)",
+        "parameters": [
+          {"name": "page", "in": "query", "schema": {"type": "integer"}, "required": false},
+          {"name": "limit", "in": "query", "schema": {"type": "integer"}, "required": false}
+        ],
+        "responses": {
+          "200": {"description": "OK"}
+        }
+      }
+    },
+    "/api/rank/{traderName}": {
+      "get": {
+        "summary": "Get rank and score for a specific trader",
+        "parameters": [
+          {"name": "traderName", "in": "path", "required": true, "schema": {"type": "string"}}
+        ],
+        "responses": {
+          "200": {"description": "OK"},
+          "404": {"description": "Not found"}
+        }
+      }
+    },
+    "/api/history/{traderName}": {
+      "get": {
+        "summary": "Get score change history for a trader (most recent first)",
+        "parameters": [
+          {"name": "traderName", "in": "path", "required": true, "schema": {"type": "string"}}
+        ],
+        "responses": {
+          "200": {"description": "OK"},
+          "404": {"description": "Not found"}
+        }
+      }
+    },
+    "/api/stats": {
+      "get": {
+        "summary": "Get aggregate stats (total traders, highest score, average score)",
+        "responses": {
+          "200": {"description": "OK"}
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
